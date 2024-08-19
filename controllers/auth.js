@@ -1,4 +1,5 @@
 const { response } = require("express");
+const User = require("../models/User");
 
 const loginUser = (req, res = response) => {
     const { email, password } = req.body;
@@ -11,16 +12,23 @@ const loginUser = (req, res = response) => {
     });
 };
 
-const createNewUser = (req, res = response) => {
-    const { name, email, password } = req.body;
+const createNewUser = async (req, res = response) => {
+    try {
+        const user = new User(req.body);
 
-    res.status(201).json({
-        ok: true,
-        msg: "register",
-        name,
-        email,
-        password,
-    });
+        await user.save();
+
+        res.status(201).json({
+            ok: true,
+            msg: "register",
+        });
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({
+            ok: false,
+            msg: "Please, talk with the admin",
+        });
+    }
 };
 
 const renewToken = (req, res = response) => {
