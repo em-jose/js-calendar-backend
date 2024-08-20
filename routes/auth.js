@@ -24,6 +24,7 @@ router.post(
     ],
     loginUser
 );
+
 router.post(
     "/new",
     [
@@ -39,6 +40,7 @@ router.post(
     ],
     createNewUser
 );
+
 router.get("/renew", jwtValidate, renewToken);
 
 module.exports = router;
