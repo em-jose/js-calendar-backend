@@ -1,5 +1,24 @@
 # React Journal
 
+## Table of content
+
+- [Overview](#overview)
+- [Tech stack](#tech-stack)
+- [Init](#init)
+  * [1. Install dependencies](#1-install-dependencies)
+  * [2. Create .env files](#2-create-env-files)
+  * [3. Launch the development server](#3-launch-the-development-server)
+- [Endpoints](#endpoints)
+  * [Endpoints usage](#endpoints-usage)
+  * [POST - Create new user](#post---create-new-user)
+  * [POST - Login user](#post---login-user)
+  * [GET - Renew auth token](#get---renew-auth-token)
+  * [POST - Create calendar event](#post---create-calendar-event)
+  * [GET - Get all calendar events](#get---get-all-calendar-events)
+  * [PUT - Update event](#put---update-event)
+  * [DELETE - Delete event](#delete---delete-event)
+- [Commands](#commands)
+
 ## Overview
 
 Calendar app back-end built with NodeJS and ExpressJS. The app allows you to create users and manage a calendar, being able to create events as reminders with a set date and edit or delete them later.
@@ -44,7 +63,7 @@ npm run dev
 
 In order to use certain endpoints, it is necessary to add the "x-token" to the request header. This token is obtained when creating a user in the application or when logging in with an existing user.
 
-```json
+```txt
 // Login response
 {
     "ok": true,
@@ -62,7 +81,7 @@ In order to use certain endpoints, it is necessary to add the "x-token" to the r
 ```
 
 **REQUEST BODY**
-```json
+```txt
 {
     "name": "<newuserName>",
     "email": "<newUserEmail>",
@@ -78,7 +97,7 @@ In order to use certain endpoints, it is necessary to add the "x-token" to the r
 ```
 
 **REQUEST BODY**
-```json
+```txt
 {
     "email": "<userEmail>",
     "password": "<passWord>"
@@ -110,7 +129,7 @@ x-token: <token>
 ```
 
 **REQUEST BODY**
-```json
+```txt
 {
     "title": "<newEventName>",
     "start": <startingTimeInMilliseconds>,
@@ -142,7 +161,7 @@ x-token: <token>
 x-token: <token>
 ```
 **REQUEST BODY**
-```json
+```txt
 {
     "title": "<eventTitle>",
     "start": <startingTimeInMilliseconds>,
