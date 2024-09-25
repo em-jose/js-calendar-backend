@@ -9,7 +9,7 @@ const { fieldValidate } = require("../middlewares/field-validator");
 const { jwtValidate } = require("../middlewares/jwt-validator");
 const router = Router();
 const {
-    getEvents,
+    getUserEvents,
     createEvent,
     updateEvent,
     deleteEvent,
@@ -18,7 +18,7 @@ const {
 // Apply JWT validation to all routes
 router.use(jwtValidate);
 
-router.get("/", getEvents);
+router.get("/", getUserEvents);
 
 router.post(
     "/",
